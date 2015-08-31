@@ -1,0 +1,31 @@
+<div ng-controller="ProfileCtrl" >
+  <div class="list card">
+		<div class="item item-thumbnail-left ">
+			<img src="{{user.get('photo').url()? user.get('photo').url() : '/images/person.png'}}" id="myImage">
+			<h2>{{user.get('name')}}</h2>
+			<button class="button icon-left ion-camera button-stable" ng-click="uploadPicture()">Change Picture</button>
+		</div>
+	</div>
+	<div class="list card">
+		<div class="item tabs tabs-icon-right">
+			<a class="tab-item" ng-class="{active:currenttab.active}" ng-click="toggle(true)">
+				<i class="icon ion-compose"></i>
+				Your Recipes
+			</a>
+			<a class="tab-item" ng-class="{active: !currenttab.active}" ng-click="toggle(false)">
+				<i class="icon ion-share"></i>
+				Bookmarks
+			</a>
+		</div>
+		<a ng-show="currenttab.active" ng-repeat="recipe in recipes" class="item item-thumbnail-left assertive" ng-click="details(recipe.id)">
+			<img src="{{recipe.get('photo').url()}}">
+			<h2>{{recipe.get('name')}}</h2>
+			<p>{{recipe.get('description')}}</p>
+		</a>
+		<a ng-show="!currenttab.active" ng-repeat="favorite in favorites" class="item item-thumbnail-left assertive" ng-click="details(favorite.get('recipe').id)">
+			<img src="{{favorite.get('recipe').get('photo').url()}}">
+			<h2>{{favorite.get('recipe').get('name')}}</h2>
+			<p>{{favorite.get('recipe').get('description')}}</p>
+		</a>
+  </div>
+</div>

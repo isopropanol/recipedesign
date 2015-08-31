@@ -1,0 +1,52 @@
+body {
+	/* Background color set as workaround for Legacy Android issue:
+	https://github.com/AppGyver/steroids/issues/381 */
+	background-color:#fff;
+
+}
+.animate
+{
+	transition: 0.4s all ease-out;
+}
+
+.animate-in.ng-hide-add, .animate-in.ng-hide-remove
+{
+	position: absolute;
+  display: block !important; 
+}
+
+.animate-in.ng-hide-remove, .animate-in.ng-hide-add.ng-hide-add-active{
+  	margin-left: -320px;
+	opacity: 1;
+}
+
+.animate-in.ng-hide-remove.ng-hide-remove-active, .animate-in.ng-hide-add{
+  margin-left: 0;
+	opacity: 1;
+}
+
+.animate-out.ng-hide-add, .animate-out.ng-hide-remove
+{
+	position: absolute;
+display: block !important; 
+  
+}
+
+.animate-out.ng-hide-remove, .animate-out.ng-hide-add.ng-hide-add-active{
+  	margin-left: 320px;
+	opacity: 1;
+}
+
+.animate-out.ng-hide-remove.ng-hide-remove-active, .animate-out.ng-hide-add{
+  margin-left: 0;
+	opacity: 1;
+}
+
+.tabs.tabs-icon-right .tab-item{
+	font-size: 15px;
+}
+
+.tabs.tabs-icon-right .tab-item.active{
+	color:white;
+	background: #999999;
+}

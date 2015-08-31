@@ -1,0 +1,32 @@
+<div ng-controller="ShowCtrl" class="padding">
+  <div class="list card">
+		<div class="item item-avatar">
+			<img src="{{recipe.get('author').get('photo').url()? recipe.get('author').get('photo').url() : '/images/person.png'}}" >
+			<p>{{recipe.get('author').get('name')}}</p>
+			<h2>{{recipe.get('name')}}</h2>
+		</div>
+		<div class="item item-image">
+			<img id="myImage" src="{{recipe.get('photo').url()}}">
+		</div>
+		<div  class="item item-text-wrap">
+	  		{{recipe.get('description')}}
+	  	</div>
+	  	<div class="item tabs tabs-icon-right">
+		    <a class="tab-item" ng-class="{active:recipe.isFavorite}" ng-click="favorite(recipe.id,$index)">
+		    	Bookmark
+		      <i class="icon ion-share"></i>
+		      
+		    </a>
+		    <!-- <a class="tab-item" href="#">
+		    	Details
+		      <i class="icon ion-arrow-right-b" ng-click="favorite(recipe.id)"></i>
+		    </a> -->
+  		</div>
+  </div>
+
+  	<div ng-if="recipe.get('author').id == user.id" class="padding">
+	  		<button class="button button-block button-assertive" ng-click="remove(recipe)" >
+				Delete Recipe
+			</button>
+	  	</div>
+</div>

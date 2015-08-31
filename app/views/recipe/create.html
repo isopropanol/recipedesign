@@ -1,0 +1,46 @@
+<div ng-controller="CreateCtrl">
+	<div class="list card">
+		<div class="item item-icon-left ">
+			<i class="icon ion-compose"></i>
+			<h2>Create Recipe</h2>
+		</div>
+		<label class="item item-input">
+			<input ng-model="data.name" type="text" placeholder="Name">
+		</label>
+		
+		<a ng-click="capture()" class="item item-icon-left assertive" href="#">
+			<i ng-show="cameraicon" class="icon ion-camera"></i>
+			<i ng-hide="cameraicon" class="icon ion-loading-c"></i>
+			Add Photo
+		</a>
+		<div ng-click="capture()" class="item item-image">
+			<img id="myImage" src="/images/cameraLight.png">
+		</div>
+	  	
+	  	<label class="item item-input" >
+			<textarea ng-model="data.description" type="text" placeholder="Ingredients and Instructions" style="min-height:100px;"></textarea>
+		</label>
+	</div>
+
+	<div class="list card">
+		<div ng-show="showError" class="item item-icon-left item-text-wrap assertive ">
+			{{errorText}}
+		</div>
+	</div>
+	<div class="list card">
+		<a ng-click="create()" class="item item-icon-left assertive" href="#">
+				<i class="icon ion-plus-round"></i>
+				Post Recipe
+		</a>
+
+	</div>
+	<div class="list card">
+		<a ng-click="testOCR()" class="item item-icon-left assertive" href="#">
+			<i class="icon ion-plus-round"></i>
+			Test OCR: {{success}}
+		</a>
+		<h2>Text Recognition</h2>
+		<p>{{imageText}}</p>
+  </div>
+
+</div>

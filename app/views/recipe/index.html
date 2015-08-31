@@ -1,0 +1,35 @@
+<div ng-controller="IndexCtrl"  >
+    <div class="list card" ng-repeat="recipe in recipes">
+		<div class="item item-avatar">
+			<img src="{{recipe.get('author').get('photo').url()? recipe.get('author').get('photo').url() : '/images/person.png'}}" >
+			<p>{{recipe.get('author').get('name')}}</p>
+			<h2>{{recipe.get('name')}}</h2>
+		</div>
+		<div class="item item-image">
+			<img id="myImage" src="{{recipe.get('photo').url()}}">
+		</div>
+		<div  class="item item-text-wrap">
+	  		{{recipe.get('description')}}
+	  	</div>
+	  	<div class="item tabs tabs-icon-right">
+		    <a class="tab-item" ng-class="{active:recipe.isFavorite}" ng-click="favorite(recipe.id,$index)">
+		    	Bookmark
+		      <i class="icon ion-share"></i>
+		      
+		    </a>
+		    <a class="tab-item" ng-click="details(recipe.id)">
+		    	Details
+		      <i class="icon ion-arrow-right-b" ></i>
+		    </a>
+  		</div>
+  </div>
+
+  <div ng-if="displayInvite" class="list card">
+		<a class="item item-icon-left" ng-click="followTab()">
+			<i class="icon ion-person-stalker assertive"></i>
+			<h2>Follow more people </h2>
+			<p>to see some recipes...</p>
+			
+		</a>
+  </div>
+</div>
